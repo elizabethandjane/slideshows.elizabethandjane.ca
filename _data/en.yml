@@ -1,0 +1,20 @@
+categories:
+  weddings: "Wedding"
+  engagements: "Engagement"
+  portraits: "Portrait"
+  pets: "Pet"
+  newborn: "Newborn"
+  maternity: "Maternity"
+
+sayings:
+  - "Amazing"
+  - "Fabulous"
+  - "Awesome"
+  - "Fantastic"
+  - "Awesome-sauce"
+  - "Super-duper"
+  - "Marvellous"
+  - "Sensational"
+
+email:
+  subject: "Sample Message"

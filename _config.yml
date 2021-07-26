@@ -1,0 +1,19 @@
+permalink: /:categories/:year/:slug/
+
+# cdn: https://assets.ottawarealestate.photos
+cdn: /photos
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: slideshow
+
+fonts:
+  weddings: "niconne"
+  engagements: "niconne"
+  portraits: "handlee"
+  pets: "cookie"
+  newborn: "handlee"
+  maternity: "handlee"

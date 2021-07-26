@@ -1,0 +1,112 @@
+{%- capture view_url -%}https://slideshows.elizabethandjane.ca/{{page.category}}/{{page.year}}/{{page.slug}}{% endcapture %}
+{%- capture cdn_url -%}{{site.cdn}}/{{page.category}}/{{page.date|date:'%Y'}}/{{page.slug}}{%- endcapture -%}
+{%- assign pretty_category=site.data.en.categories[page.category] -%}
+
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <title>{{page.title}} · {{pretty_category}} Slideshow by elizabeth&amp;jane photography, Ottawa, Canada</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="{{site.cdn}}" crossorigin>
+  <link rel="dns-prefetch" href="{{site.cdn}}" crossorigin>
+  <link rel="preload" href="/fonts/handlee.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cookie.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/niconne.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{cdn_url}}/{{page.slug}}-slideshow-001.jpg" as="image" crossorigin>
+  <link href="/css/main.css" rel="stylesheet">
+  <meta property="og:image" content="{{cdn_url}}/{{page.slug}}-slideshow-001.jpg">
+  <meta property="og:title" content="{{page.title}} {{pretty_category}} Slideshow">
+  <meta property="og:description" content="Check out the {{site.data.en.sayings|sample|downcase}} {{pretty_category|downcase}} slideshow of {{page.title}}!">
+  <meta property="og:url" content="{{view_url}}">
+  <meta property="og:site_name" content="elizabeth&amp;jane photography">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+</head>
+<body class="{{page.category}}" data-music="{{cdn_url}}/{{page.music}}">
+
+  <div id="info">
+
+    <header class="masthead">
+      <div class="masthead-wrapper">
+        <img class="shape" src="/images/shape.svg" alt="">
+        <h1 class="name">{{page.title}}</h1>
+      </div>
+      {% comment %}<a class="buy-dvd" href="" aria-label="Buy on DVD"><img src="/images/buy-dvd.svg?v={{app.version}}" alt="Buy on DVD"></a>{% endcomment %}
+    </header>
+
+    <button id="big-play" title="Play slideshow">
+      <i class="icon" role="presentation"><svg><use xlink:href="/images/icons.svg#slideshow-play-big"></use></svg></i>
+      <span class="visually-hidden" id="play-pause-label">Play slideshow</span>
+    </button>
+
+    <div class="tools-wrapper">
+
+      <nav class="tools">
+        <ul class="toolbox controls">
+          <li>
+            <button id="play-pause" class="tools-btn" data-play="Play" data-pause="Pause" title="Play">
+              <i class="icon tools-btn-icon" id="icon-slideshow-play" role="presentation"><svg><use xlink:href="/images/icons.svg#slideshow-play"></use></svg></i>
+              <i class="icon tools-btn-icon" id="icon-slideshow-pause" hidden aria-hidden="true" role="presentation"><svg><use xlink:href="/images/icons.svg#slideshow-pause"></use></svg></i>
+              <span class="tools-btn-label visually-hidden" id="play-pause-label">Play</span>
+            </button>
+          </li>
+          <li>
+            <button id="mute" class="tools-btn" data-mute="Mute" data-unmute="Un-mute" title="Mute">
+              <i class="icon tools-btn-icon" id="icon-music-play" role="presentation"><svg><use xlink:href="/images/icons.svg#audio-play"></use></svg></i>
+              <i class="icon tools-btn-icon" id="icon-music-mute" hidden aria-hidden="true" role="presentation"><svg><use xlink:href="/images/icons.svg#audio-mute"></use></svg></i>
+              <span class="tools-btn-label visually-hidden" id="mute-label">Mute</span>
+            </button>
+          </li>
+          <li>
+            <button id="fullscreen" class="tools-btn" data-fullscreen="Fullscreen" data-exitfullscreen="Exit fullscreen" title="Fullscreen">
+              <i class="icon tools-btn-icon" id="icon-fullscreen-start" role="presentation"><svg><use xlink:href="/images/icons.svg#fullscreen-start"></use></svg></i>
+              <i class="icon tools-btn-icon" id="icon-fullscreen-exit" hidden aria-hidden="true" role="presentation"><svg><use xlink:href="/images/icons.svg#fullscreen-exit"></use></svg></i>
+              <span class="tools-btn-label visually-hidden" id="fullscreen-label">Fullscreen</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="logo">
+          <a href="https://elizabethandjane.ca" title="Photography by elizabeth&amp;jane photography">
+            <img src="/images/elizabeth-and-jane-photography.png" alt="elizabeth&amp;jane photography">
+          </a>
+        </div>
+
+        <ul class="toolbox share">
+          <li class="visually-hidden">Share!</li>
+          <li>
+            <a href="https://twitter.com/share?url={{view_url}}&amp;text=Check+out+the+{{site.data.en.sayings|sample|downcase}}+{{pretty_category|downcase}}+slideshow+of+{{page.title|url_encode}}%21&amp;via=elizabethandjane" data-window-width="550" data-window-height="450" class="shareon" id="tweet" title="Tweet slideshow">
+              <i class="icon tools-btn-icon" role="presentation"><svg><use xlink:href="/images/icons.svg#twitter"></use></svg></i>
+              <span class="tools-btn-label visually-hidden">Tweet slideshow</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/sharer.php?u={{view_url}}" data-window-width="640" data-window-height="436" class="shareon" id="fb" title="Share slideshow on Facebook">
+              <i class="icon tools-btn-icon" role="presentation"><svg><use xlink:href="/images/icons.svg#facebook"></use></svg></i>
+              <span class="tools-btn-label visually-hidden">Share slideshow on Facebook</span>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+
+    {% if page.music %}
+      <div hidden aria-hidden="true">
+        <audio id="music" src="{{cdn_url}}/{{page.music}}" loop crossorigin preload></audio>
+      </div>
+    {% endif %}
+
+  </div>
+
+  <main id="slides" class="slides">
+    <img src="{{cdn_url}}/{{page.slug}}-slideshow-001.jpg" class="slide-current" alt="{{site.data.en.sayings|sample}} {{pretty_category|downcase}} photo of {{page.title}} by elizabeth&amp;jane photography" decoding="async">
+    {% for slide in (2..page.total_photos) -%}
+      <img src="{{cdn_url}}/{{page.slug}}-slideshow-{{slide|prepend:'0000'|slice:-3,3}}.jpg" alt="" decoding="async"{% if forloop.first %} class="slide-next"{% endif %}{% if forloop.index > 3 %} loading="lazy"{% endif %}>
+    {% endfor %}
+  </main>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

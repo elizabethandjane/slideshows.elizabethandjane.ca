@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "cookie";
+  src: url("/fonts/cookie.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "handlee";
+  src: url("/fonts/handlee.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "niconne";
+  src: url("/fonts/niconne.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}

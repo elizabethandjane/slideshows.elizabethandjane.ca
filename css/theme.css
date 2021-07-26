@@ -1,0 +1,299 @@
+:root {
+  --btn-padding: 0.75em;
+  --btn-size: 2rem;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: #444;
+  font: 100%/1.5 Georgia, Verdana, sans-serif;
+}
+
+body {
+  background: #444 url("/images/loader.gif") no-repeat center center;
+}
+
+[title="and"] {
+  font-family: Baskerville, Palatino, "Book Antiqua", serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+[hidden] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.visually-hidden {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.icon img,
+.icon svg {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  fill: currentColor;
+}
+
+.slides {
+  left: 0;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  transform: translateZ(0);
+}
+
+.slides img {
+  display: none;
+  left: 0;
+  height: 100vh;
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  width: 100vw;
+  transition: opacity 700ms linear;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center center;
+}
+
+.slides .slide-current {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  z-index: 100;
+}
+
+.slides .slide-leaving {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  z-index: 99;
+}
+
+.slides .slide-next {
+  display: block;
+  opacity: 0;
+  visibility: visible;
+  z-index: 98;
+}
+
+.masthead {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.masthead-wrapper {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 200ms linear;
+  text-align: center;
+}
+
+.shape {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: -2px;
+  width: 100%;
+}
+
+.name,
+.weddings .name,
+.engagements .name {
+  margin: 0;
+  padding: 0 2.5em 1.1em 2.5em;
+  position: relative;
+  z-index: 800;
+  color: #fff;
+  font: normal 2em/1.2 niconne, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.portraits .name,
+.newborn .name,
+.maternity .name {
+  padding-top: 0.2em;
+  font-family: handlee, sans-serif;
+}
+
+.pets .name {
+  font-family: cookie, sans-serif;
+}
+
+@media screen and (max-width: 40em) {
+  .name {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (min-width: 85em) {
+  .name {
+    font-size: 2.5em;
+  }
+}
+
+.buy-dvd {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 92px;
+}
+
+.buy-dvd img {
+  width: 100%;
+}
+
+#info {
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+  transition: all 200ms linear;
+}
+
+.info-hidden {
+  opacity: 0;
+}
+
+.tools-wrapper {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  grid-template-areas: "controls logo share";
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-weight: bold;
+  text-transform: lowercase;
+  -webkit-font-smoothing: antialiased;
+}
+
+.logo,
+.logo a {
+  display: block;
+  width: 200px;
+  grid-area: logo;
+}
+
+.logo a {
+  position: relative;
+  top: 7px;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+}
+
+.toolbox {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5em;
+  list-style-type: none;
+}
+
+.tools-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(var(--btn-size) + (var(--btn-padding) * 2));
+  margin: 0;
+  padding: var(--btn-padding);
+  overflow: hidden;
+  width: calc(var(--btn-size) + (var(--btn-padding) * 2));
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0.1em solid rgba(255, 255, 255, 0.5);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.tools-btn-icon {
+  display: block;
+  height: var(--btn-size);
+  width: var(--btn-size);
+  position: relative;
+  background: transparent none no-repeat center center;
+  background-size: contain;
+  color: #fff;
+}
+
+.controls {
+  grid-area: controls;
+}
+
+.share {
+  grid-area: share;
+  justify-content: end;
+}
+
+#big-play {
+  --size: 15rem;
+
+  height: var(--size);
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  width: var(--size);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  transition: all 25ms linear;
+}
+
+.big-play-hide {
+  opacity: 0;
+}
