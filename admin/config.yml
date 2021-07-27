@@ -74,7 +74,11 @@ collections:
         widget: "string"
       - label: "Shoot date"
         name: "shoot_date"
-        widget: "date"
+        widget: "datetime"
+        default: ""
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
       - label: "Total photos"
         name: "total_photos"
         widget: "number"
