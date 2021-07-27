@@ -7,7 +7,9 @@
   // eslint-disable-next-line no-unused-vars
   let slideshow;
   let infoFadeTimeout;
-  let audioFadeTimeout;
+  let audioCtx;
+  let audio;
+  let audioGain;
 
   const ui = {
     bigPlay: $id("big-play"),
@@ -68,30 +70,31 @@
     hide(uiIcons.fullscreenExit);
   };
 
+  const initAudioContext = () => {
+    if (audioCtx) {
+      return;
+    }
+    audioCtx = new AudioContext();
+    audio = audioCtx.createMediaElementSource(ui.audio);
+    audioGain = audioCtx.createGain();
+    audio.connect(audioGain);
+    audioGain.connect(audioCtx.destination);
+  };
+
   const fadeMusicOut = () => {
-    audioFadeTimeout = setTimeout(() => {
-      clearTimeout(audioFadeTimeout);
-      if (ui.audio.volume > 0.1) {
-        ui.audio.volume -= 0.1;
-        fadeMusicOut();
-      } else {
-        ui.audio.pause();
-      }
-    }, 50);
+    audioGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
+    setTimeout(() => {
+      ui.audio.pause();
+    }, 1000);
   };
 
   const fadeMusicIn = () => {
+    audioGain.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 1);
     ui.audio.play();
-    audioFadeTimeout = setTimeout(() => {
-      clearTimeout(audioFadeTimeout);
-      if (ui.audio.volume < 0.9) {
-        ui.audio.volume += 0.1;
-        fadeMusicIn();
-      }
-    }, 50);
   };
 
   const handlePlayPause = () => {
+    initAudioContext();
     if (slideshow.isPlaying) {
       slideshow.pause();
       fadeMusicOut();
