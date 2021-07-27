@@ -62,7 +62,6 @@ collections:
         pattern:
           - "[a-z\\-]+"
           - "All lowercase, words separated with dashes."
-        comment: "All lowercase, words separated with dashes."
       - label: "Title"
         name: "title"
         widget: "string"
