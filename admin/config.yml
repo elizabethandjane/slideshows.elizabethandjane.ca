@@ -16,6 +16,8 @@ collections:
     preview_path: "{{fields.category}}/{{year}}/{{fields.slug}}"
     preview_path_date_field: "shoot_date"
     summary: "{{fields.title}} — {{fields.category}} — {{fields.shoot_date}}"
+    editor:
+      preview: false
     sortable_fields:
       - "title"
       - "shoot_date"
