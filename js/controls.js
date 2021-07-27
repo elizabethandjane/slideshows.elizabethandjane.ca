@@ -115,20 +115,38 @@
   };
 
   const handleFullscreenBtn = () => {
-    if (!document.fullscreenElement) {
-      document.body.requestFullscreen();
-      showFullscreenExit();
-    } else {
-      document.exitFullscreen();
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      try {
+        document.exitFullscreen();
+      } catch {
+        // Code don’t care
+      }
+      try {
+        document.webkitExitFullscreen();
+      } catch {
+        // Code don’t care
+      }
       showFullscreenStart();
+    } else {
+      try {
+        document.body.requestFullscreen();
+      } catch {
+        // Code don’t care
+      }
+      try {
+        document.body.webkitRequestFullscreen();
+      } catch {
+        // Code don’t care
+      }
+      showFullscreenExit();
     }
   };
 
   const handleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      showFullscreenStart();
-    } else {
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
       showFullscreenExit();
+    } else {
+      showFullscreenStart();
     }
   };
 
@@ -158,6 +176,7 @@
     ui.mute.addEventListener("click", handleMute);
     ui.fullscreen.addEventListener("click", handleFullscreenBtn);
     document.addEventListener("fullscreenchange", handleFullscreen);
+    document.addEventListener("webkitfullscreenchange", handleFullscreen);
     document.addEventListener("mousemove", handleToolbar);
   };
 

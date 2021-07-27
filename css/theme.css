@@ -271,7 +271,7 @@ body {
 
 .share {
   grid-area: share;
-  justify-content: end;
+  justify-self: end;
 }
 
 #big-play {
