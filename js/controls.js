@@ -198,6 +198,13 @@
     });
   };
 
+  const hideFullScreenButton = () => {
+    if (!document.body.requestFullscreen && !document.body.webkitExitFullscreen) {
+      hide(ui.fullscreen);
+    }
+  };
+
   init();
   initShortcutKeys();
+  hideFullScreenButton();
 })();
