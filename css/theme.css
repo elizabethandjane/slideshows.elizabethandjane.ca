@@ -255,6 +255,10 @@ body {
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 }
 
+.tools-btn * {
+  pointer-events: none;
+}
+
 .tools-btn-icon {
   display: block;
   height: var(--btn-size);
@@ -272,6 +276,10 @@ body {
 .share {
   grid-area: share;
   justify-self: end;
+}
+
+.share a * {
+  pointer-events: none;
 }
 
 #big-play {
@@ -292,6 +300,10 @@ body {
   cursor: pointer;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
   transition: all 25ms linear;
+}
+
+#big-play * {
+  pointer-events: none;
 }
 
 .big-play-hide {
