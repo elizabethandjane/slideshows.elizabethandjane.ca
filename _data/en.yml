@@ -1,6 +1,7 @@
 categories:
   weddings: "Wedding"
   engagements: "Engagement"
+  families: "Families"
   portraits: "Portrait"
   pets: "Pet"
   newborn: "Newborn"
@@ -15,6 +16,3 @@ sayings:
   - "Super-duper"
   - "Marvellous"
   - "Sensational"
-
-email:
-  subject: "Sample Message"
