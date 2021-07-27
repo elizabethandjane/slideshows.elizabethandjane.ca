@@ -3,6 +3,9 @@ permalink: /:categories/:year/:slug/
 cdn: https://slideshow-assets.elizabethandjane.ca
 # cdn: /photos
 
+include:
+  - _redirects
+
 defaults:
   - scope:
       path: ""
