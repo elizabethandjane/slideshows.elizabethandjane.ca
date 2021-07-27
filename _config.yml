@@ -1,7 +1,7 @@
 permalink: /:categories/:year/:slug/
 
-# cdn: https://assets.ottawarealestate.photos
-cdn: /photos
+cdn: https://slideshow-assets.elizabethandjane.ca
+# cdn: /photos
 
 defaults:
   - scope:
