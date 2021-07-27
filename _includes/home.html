@@ -1,0 +1,12 @@
+<main id="home">
+  <a id="home-logo-link" href="https://elizabethandjane.ca" title="Photography by elizabeth&amp;jane photography">
+    <img src="/images/elizabeth-and-jane-photography.png" alt="elizabeth&amp;jane photography">
+  </a>
+  <h1 id="home-title">Slideshows</h1>
+  {% unless include.show_404 %}
+    <a id="home-link" href="https://elizabethandjane.ca">https://elizabethandjane.ca</a>
+  {% endunless %}
+  {% if include.show_404 %}
+    <p id="home-blurb">Your slideshow cannot be found.<br>Message Liz if you’re having trouble <a href="mailto:liz@elizabethandjane.ca">liz@elizabethandjane.ca</a></p>
+  {% endif %}
+</main>

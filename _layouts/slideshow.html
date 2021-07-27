@@ -7,14 +7,7 @@
 <head>
   <meta charset="utf-8">
   <title>{{page.title}} · {{pretty_category}} Slideshow by elizabeth&amp;jane photography, Ottawa, Canada</title>
-  <meta name="viewport" content="width=device-width">
-  <link rel="preconnect" href="{{site.cdn}}" crossorigin>
-  <link rel="dns-prefetch" href="{{site.cdn}}" crossorigin>
-  <link rel="preload" href="/fonts/handlee.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/cookie.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/niconne.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{cdn_url}}/{{page.slug}}-slideshow-001.jpg" as="image" crossorigin>
-  <link href="/css/main.css" rel="stylesheet">
+  {% include head.html %}
   <meta property="og:image" content="{{cdn_url}}/{{page.slug}}-slideshow-001.jpg">
   <meta property="og:title" content="{{page.title}} {{pretty_category}} Slideshow">
   <meta property="og:description" content="Check out the {{site.data.en.sayings|sample|downcase}} {{pretty_category|downcase}} slideshow of {{page.title}}!">
@@ -23,7 +16,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
 </head>
-<body class="{{page.category}}" data-music="{{cdn_url}}/{{page.music}}">
+<body class="slideshow-body {{page.category}}" data-music="{{cdn_url}}/{{page.music}}">
 
   <div id="info">
 
