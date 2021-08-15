@@ -74,22 +74,34 @@
     if (audioCtx) {
       return;
     }
-    audioCtx = new AudioContext();
-    audio = audioCtx.createMediaElementSource(ui.audio);
-    audioGain = audioCtx.createGain();
-    audio.connect(audioGain);
-    audioGain.connect(audioCtx.destination);
+    try {
+      audioCtx = new AudioContext();
+      audio = audioCtx.createMediaElementSource(ui.audio);
+      audioGain = audioCtx.createGain();
+      audio.connect(audioGain);
+      audioGain.connect(audioCtx.destination);
+    } catch (e) {
+      // Browser too old
+    }
   };
 
   const fadeMusicOut = () => {
-    audioGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
+    try {
+      audioGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
+    } catch (e) {
+      // Browser too old
+    }
     setTimeout(() => {
       ui.audio.pause();
     }, 1000);
   };
 
   const fadeMusicIn = () => {
-    audioGain.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 1);
+    try {
+      audioGain.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 1);
+    } catch (e) {
+      // Browser too old
+    }
     ui.audio.play();
   };
 
