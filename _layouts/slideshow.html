@@ -1,4 +1,4 @@
-{%- capture view_url -%}https://slideshows.elizabethandjane.ca/{{page.category}}/{{page.year}}/{{page.slug}}{% endcapture %}
+{%- capture view_url -%}https://slideshows.elizabethandjane.ca/{{page.category}}/{{page.date|date:'%Y'}}/{{page.slug}}{% endcapture %}
 {%- capture cdn_url -%}{{site.cdn}}/{{page.category}}/{{page.date|date:'%Y'}}/{{page.slug}}{%- endcapture -%}
 {%- assign pretty_category=site.data.en.categories[page.category] -%}
 
