@@ -94,7 +94,7 @@
   </div>
 
   <main id="slides" class="slides">
-    <img src="{{cdn_url}}/{{page.slug}}-slideshow-001.jpg" class="slide-current" alt="{{site.data.en.sayings|sample}} {{pretty_category|downcase}} photo of {{page.title}} by elizabeth&amp;jane photography" decoding="async">
+    <img src="{{cdn_url}}/{{page.slug}}-slideshow-001.{{page.img_ext|default:'jpg'}}" class="slide-current" alt="{{site.data.en.sayings|sample}} {{pretty_category|downcase}} photo of {{page.title}} by elizabeth&amp;jane photography" decoding="async">
     {% for slide in (2..page.total_photos) -%}
       <img src="{{cdn_url}}/{{page.slug}}-slideshow-{{slide|prepend:'0000'|slice:-3,3}}.{{page.img_ext|default:'jpg'}}" alt="" decoding="async"{% if forloop.first %} class="slide-next"{% endif %}{% if forloop.index > 3 %} loading="lazy"{% endif %}>
     {% endfor %}
