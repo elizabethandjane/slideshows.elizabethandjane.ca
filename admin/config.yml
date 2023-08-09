@@ -88,4 +88,4 @@ collections:
       - label: "Image extension"
         name: "img_ext"
         widget: "string"
-        default: "jpg"
+        default: "jpeg"
